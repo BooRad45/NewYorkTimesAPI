@@ -4,12 +4,18 @@ $("#submit").click(function(event) {
     debugger;
     event.preventDefault();
     var search = $("#search").val().trim();
-    var beginDate = $("beginDate").val();
+    var beginDate = $("#beginDate").val();
     var endDate = $("#endDate").val();
     var articleNum = $("#articleNum").val();
     endDate = parseInt(endDate);
     beginDate = parseInt(endDate);
     articleNum = parseInt(articleNum);
+    if(beginDate<9999999){
+        beginDate = "";
+    }
+    if(endDate<9999999){
+        endDate = "";
+    }
     var resultsBox = $("<div>");
     url = ("https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + api + "&q=" + search)
     $.ajax({
@@ -27,7 +33,7 @@ $("#submit").click(function(event) {
             articleResults.prepend("<p>" + pubdate + "</p>");
             articleResults.prepend("<p> Section: " + section + "</p>");
             articleResults.prepend("<p>" + by + "</p>");
-            articleResults.prepend("<h2><div id='artnum'>" + (i+1)+
+            articleResults.prepend("<h2><div id='artnum'>" + (i + 1) +
                 "</div>" + title + "</h2>");
 
 
@@ -38,3 +44,7 @@ $("#submit").click(function(event) {
     });
     $("#topart").html(resultsBox);
 });
+$("#clear").click(function(event) {
+    event.preventDefault();
+    $("#topart").empty();
+})
