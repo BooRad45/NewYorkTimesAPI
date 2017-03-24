@@ -38,4 +38,5 @@ $("#submit").click(function() {
             resultsBox.append(articleResults);
         }
     });
+    $(".panel-body").html(resultsBox);
 });
