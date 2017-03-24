@@ -27,7 +27,7 @@ $("#submit").click(function(event) {
             articleResults.prepend("<p>" + pubdate + "</p>");
             articleResults.prepend("<p> Section: " + section + "</p>");
             articleResults.prepend("<p>" + by + "</p>");
-            articleResults.prepend("<h2><div id='artnum'>" + (articleNum + 1)+
+            articleResults.prepend("<h2><div id='artnum'>" + (i+1)+
                 "</div>" + title + "</h2>");
 
 
@@ -36,5 +36,5 @@ $("#submit").click(function(event) {
             resultsBox.append(articleResults);
         }
     });
-    $(".panel-body").html(resultsBox);
+    $("#topart").html(resultsBox);
 });
