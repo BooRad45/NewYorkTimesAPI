@@ -6,13 +6,13 @@ $("#submit").click(function(event) {
     var beginDate = $("#beginDate").val();
     var endDate = $("#endDate").val();
     var articleNum = $("#articleNum").val();
-    beginDate = "&begin_date="+ beginDate +"0101"
+    beginDate = "&begin_date=" + beginDate + "0101"
     endDate = "&end_date=" + endDate + "1231"
     articleNum = parseInt(articleNum);
-    if(beginDate.length>17 || beginDate.length<19){
+    if (beginDate == NaN ||beginDate.length > 17 || beginDate.length < 19) {
         beginDate = "";
     }
-    if(endDate.length>17 || endDate.length<19){
+    if (endDate == NaN || endDate.length > 17 || endDate.length < 19 ) {
         endDate = "";
     }
     var resultsBox = $("<div>");
@@ -21,17 +21,19 @@ $("#submit").click(function(event) {
         url: url,
         method: 'GET',
     }).done(function(response) {
+        console.log(response);
         for (var i = 0; i < articleNum; i++) {
             var url = response.response.docs[i].web_url;
             var title = response.response.docs[i].headline.main;
-            var by = response.response.docs[i].byline.original;
             var section = response.response.docs[i].section_name;
             var pubdate = response.response.docs[i].pub_date;
             var articleResults = $("<div>");
             articleResults.prepend("<a href=" + url + ">" + url + "</a>");
             articleResults.prepend("<p>" + pubdate + "</p>");
             articleResults.prepend("<p> Section: " + section + "</p>");
-            articleResults.prepend("<p>" + by + "</p>");
+            if(response.response.docs[i].byline && response.response.docs[i].byline.original){
+            articleResults.prepend("<p>" + response.response.docs[i].byline.original + "</p>");
+        }
             articleResults.prepend("<h2><span class='label label-default artnum'>" + (i + 1) +
                 "</span>  " + title + "</h2>");
 
