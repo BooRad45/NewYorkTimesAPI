@@ -8,13 +8,23 @@ $("#submit").click(function(event) {
     var articleNum = $("#articleNum").val();
     beginDate = "&begin_date=" + beginDate + "0101"
     endDate = "&end_date=" + endDate + "1231"
+    console.log(beginDate.length);
+    console.log(endDate.length);
     articleNum = parseInt(articleNum);
-    if (beginDate == NaN ||beginDate.length > 17 || beginDate.length < 19) {
+    if (beginDate.length==20) {
+        console.log("it worked");
+    }
+    else{
         beginDate = "";
     }
-    if (endDate == NaN || endDate.length > 17 || endDate.length < 19 ) {
+    if (endDate.length==20) {
+        console.log(endDate);
+    }
+    else{
         endDate = "";
     }
+    console.log(beginDate);
+    console.log(endDate);
     var resultsBox = $("<div>");
     url = ("https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + api + "&q=" + search + beginDate + endDate);
     $.ajax({
