@@ -22,6 +22,12 @@ h1 {
 	color: #fff;
 	background-color: #95a5a6;
 }
+
+.btn-default:hover {
+	color: #fff;
+	background-color: #adadad;
+}
+
 .articleSearch {
 	background-color: #ECF0F1;
 	padding:10px;
