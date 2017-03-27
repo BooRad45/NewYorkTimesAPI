@@ -1,7 +1,6 @@
 var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 var api = "cc67ec052d4d4415aaf0a05c9e60f242"
 $("#submit").click(function(event) {
-    debugger;
     event.preventDefault();
     var search = $("#search").val().trim();
     var beginDate = $("#beginDate").val();
