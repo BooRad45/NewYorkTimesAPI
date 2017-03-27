@@ -11,16 +11,14 @@ $("#submit").click(function(event) {
     console.log(beginDate.length);
     console.log(endDate.length);
     articleNum = parseInt(articleNum);
-    if (beginDate.length==20) {
+    if (beginDate.length == 20) {
         console.log("it worked");
-    }
-    else{
+    } else {
         beginDate = "";
     }
-    if (endDate.length==18) {
+    if (endDate.length == 18) {
         console.log(endDate);
-    }
-    else{
+    } else {
         endDate = "";
     }
     console.log(beginDate);
@@ -41,9 +39,9 @@ $("#submit").click(function(event) {
             articleResults.prepend("<a href=" + url + ">" + url + "</a>");
             articleResults.prepend("<p>" + pubdate + "</p>");
             articleResults.prepend("<p> Section: " + section + "</p>");
-            if(response.response.docs[i].byline && response.response.docs[i].byline.original){
-            articleResults.prepend("<p>" + response.response.docs[i].byline.original + "</p>");
-        }
+            if (response.response.docs[i].byline && response.response.docs[i].byline.original) {
+                articleResults.prepend("<p>" + response.response.docs[i].byline.original + "</p>");
+            }
             articleResults.prepend("<h2><span class='label label-default artnum'>" + (i + 1) +
                 "</span>  " + title + "</h2>");
 
