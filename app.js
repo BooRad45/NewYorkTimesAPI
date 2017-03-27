@@ -17,7 +17,7 @@ $("#submit").click(function(event) {
     else{
         beginDate = "";
     }
-    if (endDate.length==20) {
+    if (endDate.length==18) {
         console.log(endDate);
     }
     else{
