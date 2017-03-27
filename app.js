@@ -6,17 +6,17 @@ $("#submit").click(function(event) {
     var beginDate = $("#beginDate").val();
     var endDate = $("#endDate").val();
     var articleNum = $("#articleNum").val();
-    endDate = parseInt(endDate);
-    beginDate = parseInt(endDate);
+    beginDate = "&begin_date="+ beginDate +"0101"
+    endDate = "&end_date=" + endDate + "1231"
     articleNum = parseInt(articleNum);
-    if(beginDate<9999999){
+    if(beginDate.length<17){
         beginDate = "";
     }
-    if(endDate<9999999){
+    if(endDate.length<17){
         endDate = "";
     }
     var resultsBox = $("<div>");
-    url = ("https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + api + "&q=" + search)
+    url = ("https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + api + "&q=" + search + beginDate + endDate);
     $.ajax({
         url: url,
         method: 'GET',
