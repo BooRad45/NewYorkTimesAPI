@@ -9,10 +9,10 @@ $("#submit").click(function(event) {
     beginDate = "&begin_date="+ beginDate +"0101"
     endDate = "&end_date=" + endDate + "1231"
     articleNum = parseInt(articleNum);
-    if(beginDate.length<17){
+    if(beginDate.length>17 || beginDate.length<19){
         beginDate = "";
     }
-    if(endDate.length<17){
+    if(endDate.length>17 || endDate.length<19){
         endDate = "";
     }
     var resultsBox = $("<div>");
