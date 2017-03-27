@@ -32,8 +32,8 @@ $("#submit").click(function(event) {
             articleResults.prepend("<p>" + pubdate + "</p>");
             articleResults.prepend("<p> Section: " + section + "</p>");
             articleResults.prepend("<p>" + by + "</p>");
-            articleResults.prepend("<h2><div id='artnum'>" + (i + 1) +
-                "</div>" + title + "</h2>");
+            articleResults.prepend("<h2><span class='label label-default artnum'>" + (i + 1) +
+                "</span>  " + title + "</h2>");
 
 
             articleResults.addClass("articleSearch");
